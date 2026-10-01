@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+/* Colours (same palette as the Ageru design system) */
+@theme {
+  /* Brand */
+  --color-brand:        #1447E6;
+  --color-brand-hover:  #193CB8;
+  --color-brand-focus:  #BEDBFF;
+  --color-brand-light:  #DBEAFE;
+
+  /* Surface / secondary */
+  --color-secondary:       #F9FAFB;
+  --color-secondary-hover: #F3F4F6;
+  --color-secondary-focus: #E5E7EB;
+
+  /* Semantic */
+  --color-success:       #00B050;
+  --color-success-hover: #009B47;
+  --color-success-focus: #A4F4CF;
+
+  --color-danger:       #C70036;
+  --color-danger-hover: #A50036;
+  --color-danger-focus: #FFCCD3;
+
+  --color-warning:       #FD6C1A;
+  --color-warning-hover: #B43403;
+  --color-warning-focus: #FCD9BD;
+
+  /* Base colours */
+  --color-cbase:     #E5E7EB;
+
+  /* Text */
+  --color-tdefault:  #101828;
+  --color-tsubtle:   #6A7282;
+  --color-tdisabled: #99A1AF;
+  --color-tbody:     #4A5565;
+  --color-theading:  #101828;
+  --color-thyperlink:#4D89FB;
+  --color-tgray:     #656565;
+
+  /* Layout */
+  --color-navbar:    #2B3A6A;
+
+  /* shadcn-svelte compat aliases */
+  --color-background:        #ffffff;
+  --color-foreground:        #101828;
+  --color-border:            #E5E7EB;
+  --color-input:             #E5E7EB;
+  --color-muted:             #F9FAFB;
+  --color-muted-foreground:  #6A7282;
+  --color-accent:            #F3F4F6;
+  --color-accent-foreground: #101828;
+  --color-destructive:       #C70036;
+  --color-card:              #ffffff;
+  --color-card-foreground:   #101828;
+  --color-primary:           #1447E6;
+  --color-primary-foreground:#ffffff;
+}
+
+/* Page defaults */
+@layer base {
+  body, html {
+    @apply font-sans antialiased text-tdefault bg-background;
+  }
+
+  input[type="search"]::-webkit-search-cancel-button { display: none; }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type="number"] { -moz-appearance: textfield; }
+}
+
+/* Classes used by the App* components */
+
+/* Inputs */
+.app-input {
+  @apply w-full rounded-lg border border-cbase bg-white px-3 py-2 text-sm text-tdefault
+         placeholder:text-tdisabled
+         focus:outline-none focus:ring-0 focus:border-brand
+         disabled:bg-secondary disabled:text-tdisabled disabled:cursor-not-allowed
+         transition-colors;
+}
+
+/* Required asterisk */
+.app-asterisk {
+  @apply ml-1 text-danger text-sm leading-5 font-bold;
+}
+
+/* Buttons */
+.app-btn {
+  @apply inline-flex items-center justify-center rounded-lg font-medium border
+         focus:outline-none focus:ring-0 transition-colors cursor-pointer select-none
+         disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-gray-200
+         disabled:text-neutral-600 disabled:border-transparent;
+}
+
+/* Hand cursor on everything clickable */
+a, button, [role="button"], [role="option"],
+input[type="checkbox"], input[type="radio"],
+select, label:has(input[type="checkbox"]), label:has(input[type="radio"]) {
+  cursor: pointer;
+}
+
+/* Button variants */
+.app-btn-brand     { @apply bg-brand text-white border-transparent hover:bg-brand-hover; }
+.app-btn-brand-sec { @apply bg-transparent text-brand border-brand hover:bg-brand hover:text-white; }
+.app-btn-secondary { @apply bg-secondary text-tdefault border-secondary-hover hover:bg-secondary-hover; }
+.app-btn-danger    { @apply bg-danger text-white border-transparent hover:bg-danger-hover; }
+.app-btn-danger-sec{ @apply bg-transparent text-danger border-danger hover:bg-danger hover:text-white; }
+.app-btn-success   { @apply bg-success text-white border-transparent hover:bg-success-hover; }
+
+/* Button sizes */
+.app-btn-xs { @apply px-3 py-1.5 text-xs; }
+.app-btn-sm { @apply px-3 py-2   text-sm; }
+.app-btn-md { @apply px-4 py-2.5 text-sm; }
+.app-btn-lg { @apply px-5 py-3   text-base; }
+.app-btn-xl { @apply px-6 py-3.5 text-base; }

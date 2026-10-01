@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Database connection with its password: copy .env.example to .env
+.env
+.env.*
+!.env.example
+
+# Editor and local tool settings
+.idea/
+.claude/
+
+# Node (the frontend has its own .gitignore)
+node_modules/
+
+# Kept locally, not in the repo: CLI output and screenshots, article figures,
+# design docs and the Claude Code notes
+/assets/
+/appendix_figures/
+/docs/
+/CLAUDE.md
+
+# Office lock files and OS files
+~$*
+.DS_Store
+Thumbs.db
